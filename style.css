@@ -59,10 +59,13 @@ input{
 
 .results{
     width:70%; 
-    /* background-color: rgb(96 139 168 / 0.2); */
     border-radius:5px; 
     border-top: 2px solid;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .monthly-payment-breakdown{
@@ -112,3 +115,4 @@ input{
     font-size:25px;
     font-weight:bold;
 }
+
