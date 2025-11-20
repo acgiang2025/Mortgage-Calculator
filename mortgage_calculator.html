@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+
+    <title>Your Page Title</title>
+</head>
+<body>
+    <h1 style="font-size:3rem;">Mortgage Calculator</h1>
+    <div class="form-block">
+        <div class="form">
+            
+            <form id="mortgageForm" action="#" method="POST">
+                <div class="form-group">
+                    <label >Home Value: <br><input type="number" name="homeValue" placeholder="$400,000" min="0" required></label>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label >Down Payment: <br><input type="number" name="downPayment" placeholder="$40,000" min="0" required></label>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label >Interest Rate (%): <br><input type="number" name="interestRate" step="0.01" placeholder="6.5" min="0" required></label>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label >Loan Term (years): <br><input type="number"name="loanTerm" placeholder="30" min="0" required></label>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label >Property Tax (%): <br><input type="number" name="propertyTax" step="0.01" placeholder="3" min="0" required></label>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label >PMI (%): <br><input type="number" name="pmi" step="0.01" placeholder="0.5"  min="0" ></label>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label >Home Insurance (annual): <br><input type="number" name="homeInsurance" placeholder="$4500"  min="0" ></label>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label >HOA (annual): <br><input type="number" name="hoa" placeholder="$1800"  min="0" ></label>
+                    
+                </div>
+                <button type="submit" id="calculate_btn">Calculate</button>
+            </form>
+            
+        </div>
+        <div class="results">
+            <h1>Mortgage Repayment Summary</h1>
+            <h3>Monthly Mortgage: <span id="monthlyMortgage"></span></h3>
+            <h3>Monthly PMI: <span id="monthlypmi"></span></h3>
+            <h3>Monthly Mortgage + PMI: <span id="monthlyMortgagepmi"></span></h3>
+            <h3>Total Interest Paid: <span id="totalInterest"></span></h3>
+            <h3>Monthly Property Tax: <span id="monthlyPropertyTax"></span></h3>
+            <h3>Monthly Home Insurance: <span id="monthlyHomeInsurance"></span></h3>
+            <h3>Monthly HOA Fees: <span id="monthlyhoaFees"></span></h3>
+            <h3>Total Monthly Payment: <span id="monthlyPayment"></span></h3>
+
+            <h1>Monthly Payment Breakdown</h1>
+            <div class="monthly-payment-breakdown">
+                
+                <div class="mp-right">
+                    <p><sup>$ </sup><span id="monthly-payment"></span> /mo</p>
+                </div>
+                <div class="mp-left">
+                    <table class="mp-table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label>Principal & Interest</label>
+                                </td>
+                                <td>
+                                    $ <span id="principal-and-interest"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Property Tax</label>
+                                </td>
+                                <td>
+                                    $ <span id="property-tax"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Homeowner's Insurance</label>
+                                </td>
+                                <td>
+                                    $ <span id="home-insurance"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+
+
+</body>
+<footer>
+    <script src="script.js"></script>
+</footer>
+</html>
