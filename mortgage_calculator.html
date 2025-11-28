@@ -6,51 +6,50 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css" />
 
-    <title>Your Page Title</title>
+    <title>Mortgage Calculator</title>
 </head>
 <body>
     <h1 style="font-size:3rem;">Mortgage Calculator</h1>
     <div class="form-block">
         <div class="form">
-            
             <form id="mortgageForm" action="#" method="POST">
                 <div class="form-group">
-                    <label >Home Value: <br><input type="number" name="homeValue" placeholder="$400,000" min="0" required></label>
+                    <label >Home Value: <br><input type="number" name="homeValue" placeholder="$400,000" min="0" value="400000" required></label>
                     
                 </div>
 
                 <div class="form-group">
-                    <label >Down Payment: <br><input type="number" name="downPayment" placeholder="$40,000" min="0" required></label>
+                    <label >Down Payment: <br><input type="number" name="downPayment" placeholder="$40,000" min="0" value="40000" required></label>
                     
                 </div>
 
                 <div class="form-group">
-                    <label >Interest Rate (%): <br><input type="number" name="interestRate" step="0.01" placeholder="6.5" min="0" required></label>
+                    <label >Interest Rate (%): <br><input type="number" name="interestRate" step="0.01" placeholder="6.5" min="0" value="6.5" required></label>
                     
                 </div>
 
                 <div class="form-group">
-                    <label >Loan Term (years): <br><input type="number"name="loanTerm" placeholder="30" min="0" required></label>
+                    <label >Loan Term (years): <br><input type="number"name="loanTerm" placeholder="30" min="0" value="30" required></label>
                     
                 </div>
 
                 <div class="form-group">
-                    <label >Property Tax (%): <br><input type="number" name="propertyTax" step="0.01" placeholder="3" min="0" required></label>
+                    <label >Property Tax (%): <br><input type="number" name="propertyTax" step="0.01" placeholder="3" min="0" value="3" required></label>
                     
                 </div>
 
                 <div class="form-group">
-                    <label >PMI (%): <br><input type="number" name="pmi" step="0.01" placeholder="0.5"  min="0" ></label>
+                    <label >PMI (%): <br><input type="number" name="pmi" step="0.01" placeholder="0.5"  min="0" value=".5" ></label>
                     
                 </div>
 
                 <div class="form-group">
-                    <label >Home Insurance (annual): <br><input type="number" name="homeInsurance" placeholder="$4500"  min="0" ></label>
+                    <label >Home Insurance (annual): <br><input type="number" name="homeInsurance" placeholder="$4500"  min="0" value="4500" ></label>
                     
                 </div>
 
                 <div class="form-group">
-                    <label >HOA (annual): <br><input type="number" name="hoa" placeholder="$1800"  min="0" ></label>
+                    <label >HOA (annual): <br><input type="number" name="hoa" placeholder="$1800"  min="0" value="1800" ></label>
                     
                 </div>
                 <button type="submit" id="calculate_btn">Calculate</button>
@@ -58,52 +57,89 @@
             
         </div>
         <div class="results">
-            <h1>Monthly Payment Breakdown</h1>
-            <div class="monthly-payment-breakdown">
-                
-                <div class="mp-right">
-                    <p><sup>$ </sup><span id="monthly-payment"></span> /mo</p>
+            <div class="result-buttons">
+                <button class="tab active" onclick="showMonthlyBreakdown();">Payment Breakdown</button>
+                <button class="tab " onclick="showAmortization();">Amortization</button>
+            </div>
+            <div class="results-content">
+                <div class="mpb">
+                    <h1>Monthly Payment Breakdown</h1>
+                    <div class="monthly-payment-breakdown">
+                        <div class="mp-right">
+                            <p><sup>$ </sup><span id="monthly-payment"></span> /mo</p>
+                        </div>
+                        <div class="mp-left">
+                            <table class="mp-table">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label>Principal & Interest</label>
+                                        </td>
+                                        <td>
+                                            $ <span id="principal-and-interest"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>PMI</label>
+                                        </td>
+                                        <td>
+                                            $ <span id="results-pmi"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Property Tax</label>
+                                        </td>
+                                        <td>
+                                            $ <span id="property-tax"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Homeowner's Insurance</label>
+                                        </td>
+                                        <td>
+                                            $ <span id="home-insurance"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>HOA Fees</label>
+                                        </td>
+                                        <td>
+                                            $ <span id="hoa-fees"></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div class="mp-left">
-                    <table class="mp-table">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <label>Principal & Interest</label>
-                                </td>
-                                <td>
-                                    $ <span id="principal-and-interest"></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>Property Tax</label>
-                                </td>
-                                <td>
-                                    $ <span id="property-tax"></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>Homeowner's Insurance</label>
-                                </td>
-                                <td>
-                                    $ <span id="home-insurance"></span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- <hr class="solid"> -->
+                <div class="hide table-div">
+                    <h1>Amortization For a Mortgage Loan</h1>
+                    <canvas id="amortization-line-graph"></canvas>
+                    <h1>Amortization Schedule Breakdown</h1>
+                    <div id="table-container"></div>
+                    <div style="margin-top: 10px;">
+                        <button id="prevBtn">Previous</button>
+                        <span id="pageInfo"></span>
+                        <button id="nextBtn">Next</button>
+                    </div>
                 </div>
             </div>
-            
-
         </div>
     </div>
 
 
+
 </body>
 <footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+    <script src="graph.js"></script>
+    
+    
 </footer>
-
 </html>
