@@ -1,2 +1,2 @@
 # Mortgage-Calculator
-Calculate your estimated monthly payments for your mortgage with this calculator. 
+This website features a full-featured mortgage calculator designed to help users understand the true cost of homeownership. It collects inputs such as home value, down payment, interest rate, loan term, property tax, PMI, home insurance, and HOA fees to calculate the monthly mortgage payment and detailed cost breakdown. The site also includes an interactive amortization graph and a comprehensive amortization schedule table, giving users a clear visual and numerical view of how their loan balance changes over time.
